@@ -1,0 +1,105 @@
+{% include "company_dashboard/header.html" %}
+<!-- Titlebar
+================================================== -->
+<section id="titlebar">
+	<!-- Container -->
+	<div class="container">
+	
+		<div class="eight columns">
+			<h3 class="left">Interview Detail:</h3>
+		</div>
+		
+		 
+
+	</div>
+	<!-- Container / End -->
+</section>
+
+  <!-- Content -->
+  <div id="content">
+    <div class="container">
+	
+	  
+	 
+		     <form  method="post"  enctype="multipart/form-data" id="form2" action="{{ url_for('cominterview') }}">
+         <table width="100%" border="0">
+  <tr>
+    <td>Date:</td>
+    <td> <input type="date" name="date"  required/></td>
+  </tr>
+  <tr>
+    <td>Company Name:</td>
+    <td> <input type="text" name="cname" value="{{account.cname}}" readonly/></td>
+  </tr>
+    <tr>
+    <td>Address:</td>
+    <td><textarea rows="5" cols="40" name="address"></textarea> </td>
+  </tr>
+  <tr>
+    <td>Contact Person:</td>
+    <td> <input type="text" name="cper"/></td>
+  </tr>
+    <tr>
+    <td>Mobile Number:</td>
+    <td>  <input type="tel" name="mob" pattern="[0-9]{10}"  required/></td>
+  </tr>
+  
+  
+    <tr>
+    <td>City:</td>
+    <td>   <input type="text" name="lmark"  required/></td>
+  </tr>
+
+  <tr>
+    <td>Time:</td>
+    <td><input type="text" name="tim"  required/></td>
+  </tr>
+  
+  <tr>
+  
+    <td>Position</td>
+    <td> <select name="pos" id="job_role" onchange="showRequirement()" required>
+    <option value="">Select Job Role</option>
+    {% for job in jobs %}
+        <option value="{{ job.job_role }}" data-req="{{ job.requirements }}">
+            {{ job.job_role }}
+        </option>
+    {% endfor %}
+</select></td>
+  </tr>
+<tr>
+  
+    <td>Requirements</td>
+    <td><input type="text" name="requirements" id="requirements" readonly></td>
+  </tr>
+
+  <tr>
+    <td>No Of Posting:</td>
+    <td><input type="text" name="npos"  required/></td>
+  </tr>
+    <td><input type="submit" name="submit"  value="submit" /></td>
+    <td> <input type="reset" name="Cancel"  /></td>
+  </tr>
+</table>
+</form>
+
+ 
+
+      <div class="row">
+        <div class="span12">  
+            	
+        		 
+    
+        	
+                          
+  <!-- Content End -->
+  </div> </div> </div> </div> </div> </div> </div>
+  
+
+  <script>
+function showRequirement() {
+    var select = document.getElementById("job_role");
+    var req = select.options[select.selectedIndex].getAttribute("data-req");
+    document.getElementById("requirements").value = req;
+}
+</script>

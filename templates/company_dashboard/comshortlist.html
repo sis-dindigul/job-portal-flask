@@ -1,0 +1,98 @@
+{% include "company_dashboard/header.html" %}
+
+<section id="titlebar">
+	<!-- Container -->
+	<div class="container">
+	
+		<div class="eight columns">
+			<h3 class="left">Short List</h3>
+		</div>
+		
+		 
+
+	</div>
+	<!-- Container / End -->
+</section>
+  <div id="content">
+    <div class="container">
+<form method="POST" action="{{url_for('comshortlist')}}">
+
+<table>
+
+<tr>
+<td>Company Name</td>
+<td>
+<select name="cname">
+<option>Select Company</option>
+
+{% for c in companies %}
+<option value="{{ c.cname }}">{{ c.cname }}</option>
+{% endfor %}
+
+</select>
+</td>
+</tr>
+
+<tr>
+<td>Skill Set</td>
+<td>
+<select name="sset">
+<option>Select</option>
+<option value="Java">Java</option>
+<option value="C">C</option>
+<option value="C++">C++</option>
+<option value="PHP">PHP</option>
+<option value="Python">Python</option>
+<option value="AI">AI</option>
+<option value="ML">ML</option>
+</select>
+</td>
+</tr>
+
+<tr>
+<td>Name</td>
+<td><input type="text" name="name"></td>
+</tr>
+
+<tr>
+<td>Qualification</td>
+<td><input type="text" name="qualification"></td>
+</tr>
+
+<tr>
+<td>Experience</td>
+<td><input type="text" name="experience"></td>
+</tr>
+
+<tr>
+<td>Status</td>
+<td>
+<select name="status">
+<option value="Selected">Selected</option>
+<option value="Rejected">Rejected</option>
+</select>
+</td>
+</tr>
+
+</tr>
+    <td><input type="submit" name="submit"  value="submit" /></td>
+    <td> <input type="reset" name="Cancel"  /></td>
+  </tr>
+</table>
+</form>
+
+ 
+
+      <div class="row">
+        <div class="span12">  
+            	
+        		 
+    
+        	
+                          
+  <!-- Content End -->
+  </div> </div> </div> </div> </div> </div> </div>
+
+{% include "company_dashboard/footer.html" %}
+
+                          

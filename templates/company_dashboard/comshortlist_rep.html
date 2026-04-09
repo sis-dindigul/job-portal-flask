@@ -1,0 +1,112 @@
+
+<style>
+#titlebar {
+    background: linear-gradient(120deg, #4facfe, #00c6ff);
+    color: white;
+    padding: 20px 0;
+    margin-bottom: 30px;
+}
+
+.table-card {
+    background: #fff;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+}
+
+.custom-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.custom-table thead {
+    background: #007bff;
+    color: white;
+}
+
+.custom-table th, .custom-table td {
+    padding: 12px;
+    text-align: center;
+}
+
+.custom-table tbody tr {
+    border-bottom: 1px solid #eee;
+    transition: 0.2s;
+}
+
+.custom-table tbody tr:hover {
+    background: #f5f7fb;
+}
+
+/* Status badge */
+.status-shortlisted {
+    background: #d4edda;
+    color: #155724;
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-size: 13px;
+}
+
+.status-pending {
+    background: #fff3cd;
+    color: #856404;
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-size: 13px;
+}
+</style>
+{% include "company_dashboard/header.html" %}
+
+<section id="titlebar">
+    <div class="container">
+        <h3>Short List Report</h3>
+    </div>
+</section>
+
+<div class="container">
+
+<div class="table-card">
+
+<table class="custom-table">
+
+<thead>
+<tr>
+    <th>ID</th>
+    <th>Company</th>
+    <th>Skill</th>
+    <th>Name</th>
+    <th>Qualification</th>
+    <th>Experience</th>
+    <th>Status</th>
+</tr>
+</thead>
+
+<tbody>
+{% for row in account %}
+<tr>
+   <td>{{ loop.index }}</td> 
+    <td>{{ row.cname }}</td>
+    <td>{{ row.skillset }}</td>
+    <td>{{ row.name }}</td>
+    <td>{{ row.qualification }}</td>
+    <td>{{ row.experience }}</td>
+
+    <td>
+        {% if row.status == "Shortlisted" %}
+            <span class="status-shortlisted">Shortlisted</span>
+        {% else %}
+            <span class="status-pending">Pending</span>
+        {% endif %}
+    </td>
+
+</tr>
+{% endfor %}
+</tbody>
+
+</table>
+
+</div>
+
+</div>
+
+{% include "company_dashboard/footer.html" %}
