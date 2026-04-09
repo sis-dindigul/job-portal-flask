@@ -1,0 +1,89 @@
+{% include "admin_dashboard/header.html" %}
+
+<section id="titlebar">
+    <div class="container">
+        <h3>Resume Report</h3>
+    </div>
+</section>
+
+<div class="container">
+
+<!-- 🔥 FILTER BOX -->
+<div class="filter-box">
+<form method="post" action="{{ url_for('aresume') }}" class="form-inline">
+
+   <label class="mr-2"><b>Select Requirement Skill:</b></label> 
+    <select name="requirements" required> <option value="">Select Requirement Skill</option> 
+        {% for job in jobs %} 
+        <option value="{{ job.requirements }}" 
+        {% if selected_req == job.requirements %}selected
+        {% endif %}>
+         {{ job.requirements }} </option> 
+        {% endfor %} </select> 
+        <button type="submit" class="btn btn-primary ml-2">
+            Filter</button> 
+        </form> 
+        {% if selected_req %} 
+        <h5 class="mt-3">Results for Requirement: <b>
+            {{ selected_req }}</b>
+        </h5> {% endif %} 
+    </div>
+<br>
+
+<!-- 🔥 TABLE RESULT -->
+{% if account %}
+<div class="table-card">
+
+<table class="custom-table">
+
+<thead>
+<tr>
+    <th>Name</th>
+    <th>Qualification</th>
+    <th>Experience</th>
+    <th>Skill</th>
+   
+    <th>Resume</th>
+</tr>
+</thead>
+
+<tbody>
+{% for row in account %}
+<tr>
+    <td>{{ row.jname }}</td>
+    <td>{{ row.qualification }}</td>
+    <td>{{ row.experience }}</td>
+   <td>
+{% set req_words = selected_req.lower().split() %}
+{% set skills = row.skillset.split(',') %}
+
+{% for skill in skills %}
+    {% if skill.strip().lower() in req_words %}
+        <span style="color:green;">{{ skill.strip() }}</span>{% if not loop.last %}, {% endif %}
+    {% else %}
+        {{ skill.strip() }}{% if not loop.last %}, {% endif %}
+    {% endif %}
+{% endfor %}
+</td>
+
+    <td>
+        <a href="{{ url_for('download_file', filename=row.resumee) }}" 
+           class="btn-download">
+           Download
+        </a>
+    </td>
+</tr>
+{% endfor %}
+</tbody>
+
+</table>
+
+</div>
+
+{% elif selected_req %}
+<p>No records found for <b>{{ selected_req }}</b>!</p>
+{% endif %}
+
+</div>
+
+{% include "admin_dashboard/footer.html" %}

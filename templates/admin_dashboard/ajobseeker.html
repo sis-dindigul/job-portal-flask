@@ -1,0 +1,55 @@
+{% include "admin_dashboard/header.html" %}
+
+<section id="titlebar">
+    <div class="container">
+        <h3>Job Seeker Report</h3>
+    </div>
+</section>
+
+<div class="container">
+
+<div class="table-card">
+
+<table class="custom-table">
+
+<thead>
+<tr>
+    <th>Name</th>
+    <th>Address</th>
+    <th>District</th>
+    <th>Email</th>
+    <th>Mobile</th>
+    <th>Qualification</th>
+    <th>DOB</th>
+    <th>Mark Sheet</th>
+</tr>
+</thead>
+
+<tbody>
+{% for row in account %}
+<tr>
+    <td>{{ row.jname }}</td>
+    <td>{{ row.adrs }}</td>
+    <td>{{ row.city }}</td>
+    <td>{{ row.email }}</td>
+    <td>{{ row.mobile }}</td>
+    <td>{{ row.quali }}</td>
+    <td>{{ row.dob }}</td>
+
+    <td>
+        <a href="{{ url_for('download_file', filename=row.upload) }}" 
+           class="btn-download">
+           Download
+        </a>
+    </td>
+</tr>
+{% endfor %}
+</tbody>
+
+</table>
+
+</div>
+
+</div>
+
+{% include "admin_dashboard/footer.html" %}

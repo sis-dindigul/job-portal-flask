@@ -1,0 +1,61 @@
+{% include "admin_dashboard/header.html" %}
+<!-- Titlebar
+================================================== -->
+<section id="titlebar">
+	<!-- Container -->
+	<div class="container">
+	
+		<div class="eight columns">
+			<h3 class="left">Company Confirmation</h3>
+		</div>
+		
+		 
+
+	</div>
+	<!-- Container / End -->
+</section>
+
+  <!-- Content -->
+  <div id="content">
+    <div class="container">
+	
+	  <form method="post" action="{{ url_for('aconfirm', id=account['id']) }}">
+
+          <table width="100%"  style="padding:20px;">
+              <tr>
+    <td>ID</td>
+    <td><input type="text" name="id" value="{{ account['id'] }}"/></td>
+  </tr>
+  <tr>
+    <td>Company Name </td>
+    <td><input type="text" name="name" value="{{ account['cname'] }}"/></td>
+  </tr>
+   
+  <tr>
+    <td>Approval </td>
+    <td><select name="confr"><option value="1">Yes</option>
+	
+	<option value="0">No</option></select>
+	</td>
+  </tr>
+  <tr>
+    <td><input type="submit" name="submit" value="submit"></td>
+    <td><input type="reset" name="cancel"></td>
+  </tr>
+</table>
+</form>
+
+ 
+
+      <div class="row">
+        <div class="span12">  
+            	
+        		 
+    
+        	
+                          
+  <!-- Content End -->
+  </div> </div> </div> </div> </div> </div> </div>
+  
+{% include "admin_dashboard/footer.html" %}
+  

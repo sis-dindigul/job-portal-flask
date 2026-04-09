@@ -1,0 +1,50 @@
+{% include "admin_dashboard/header.html" %}
+
+<section id="titlebar">
+    <div class="container">
+        <h3>Interview Details</h3>
+    </div>
+</section>
+
+<div class="container">
+
+<div class="table-card">
+
+<table class="custom-table">
+
+<thead>
+<tr>
+    <th>Date</th>
+    <th>Company</th>
+    <th>Address</th>
+    <th>Contact Person</th>
+    <th>Mobile</th>
+    <th>District</th>
+</tr>
+</thead>
+
+<tbody>
+{% for row in account %}
+<tr>
+
+    <td>
+        <span class="badge-date">{{ row.Date }}</span>
+    </td>
+
+    <td>{{ row.CName }}</td>
+    <td>{{ row.Address }}</td>
+    <td>{{ row.Contact }}</td>
+    <td>{{ row.Mobile }}</td>
+    <td>{{ row.City }}</td>
+
+</tr>
+{% endfor %}
+</tbody>
+
+</table>
+
+</div>
+
+</div>
+
+{% include "admin_dashboard/footer.html" %}

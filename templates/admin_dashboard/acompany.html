@@ -1,0 +1,95 @@
+{% include "admin_dashboard/header.html" %}
+
+<div class="container mt-4">
+
+    <!-- 🔥 Pending Companies -->
+    <div class="table-card">
+
+        <h4 class="section-title">Pending Company Report</h4>
+
+        <table class="custom-table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Company</th>
+                    <th>Contact Person</th>
+                    <th>Address</th>
+                    <th>District</th>
+                    <th>Email</th>
+                    <th>Mobile</th>
+                    <th>Work Area</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+
+            <tbody>
+            {% for row in account %}
+            <tr>
+                <td>{{ row.id }}</td>
+                <td>{{ row.cname }}</td>
+                <td>{{ row.cperson }}</td>
+                <td>{{ row.adrs }}</td>
+                <td>{{ row.city }}</td>
+                <td>{{ row.email }}</td>
+                <td>{{ row.mobile }}</td>
+                <td>{{ row.awork }}</td>
+
+                <td>
+                    <a href="{{ url_for('aconfirm', id=row.id) }}" 
+                       class="btn-confirm">
+                       Confirm
+                    </a>
+                </td>
+            </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+
+    </div>
+
+
+    <!-- 🔥 Approved Companies -->
+    <div class="table-card">
+
+        <h4 class="section-title">Approved Company Report</h4>
+
+        <table class="custom-table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Company</th>
+                    <th>Contact Person</th>
+                    <th>Address</th>
+                    <th>District</th>
+                    <th>Email</th>
+                    <th>Mobile</th>
+                    <th>Work Area</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+
+            <tbody>
+            {% for row in account1 %}
+            <tr>
+                <td>{{ row.id }}</td>
+                <td>{{ row.cname }}</td>
+                <td>{{ row.cperson }}</td>
+                <td>{{ row.adrs }}</td>
+                <td>{{ row.city }}</td>
+                <td>{{ row.email }}</td>
+                <td>{{ row.mobile }}</td>
+                <td>{{ row.awork }}</td>
+
+                <td>
+                    <span class="badge-approved">Approved</span>
+                </td>
+            </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+
+    </div>
+
+</div>
+
+{% include "admin_dashboard/footer.html" %}
