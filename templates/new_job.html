@@ -1,0 +1,149 @@
+{% include "header.html" %}
+<!-- Titlebar
+================================================== -->
+<section id="titlebar">
+	<!-- Container -->
+	<div class="container">
+	
+		<div class="eight columns">
+			<h3 class="left">Jobseeker Register</h3>
+		</div>
+		
+		 
+
+	</div>
+	<!-- Container / End -->
+</section>
+
+  <!-- Content -->
+  <div id="content">
+    <div class="container">
+	
+	<table width="100%" >
+	<tr>
+	<td>
+
+     
+      <form action="{{ url_for('new_job') }}" method="post"  enctype="multipart/form-data" id="form2">
+         <table width="100%" border="0">
+  <tr>
+    <td>JobSeeker Name:</td>
+    <td> <input type="text" name="t1" id="txtName" /></td>
+  </tr>
+  <tr>
+    <td>Address</td>
+    <td><textarea name="t2" id="t2" cols="45" rows="5"></textarea> </td>
+  </tr>
+  <tr>
+    <td>City:</td>
+    <td> <input type="text" name="t3" id="txtCity" /> </td>
+  </tr>
+
+  <tr>
+    <td>Email:</td>
+    <td>   <input type="email" pattern="[^ @]*@[^ @]*" name="t4" id="txtEmail" /></td>
+  </tr>
+  <tr>
+    <td>Mobile:</td>
+    <td>  <input type="text" name="t5" id="txtMobile" /></td>
+  </tr>
+  <tr>
+    <td>Qualification:</td>
+    <td><select name="t6" id="cmbQual">
+                          <option value="B.C.A">B.C.A</option>
+                          <option value="M.C.A">M.C.A</option>
+                          <option value="B.Sc.I.T">B.Sc.I.T</option>
+                          <option value="B.Sc.C.S">B.Sc.C.S</option>
+                          <option value="M.Sc.I.T">M.Sc.I.T</option>
+                          <option value="M.Sc.C.S">M.Sc.C.S</option>
+                          <option value="M.B.A">M.B.A</option>
+                          <option value="B.B.A">B.B.A</option>
+                          <option value="Other">Other</option>
+                        </select></td>
+  </tr>
+ 
+  <tr>
+    <td>Gender:</td>
+    <td> <select name="t7" id="cmbGender">
+                          <option value="Male">Male</option>
+                          <option value="Female">Female</option>
+                        </select></td>
+  </tr>
+  <tr>
+    <td>BirthDate:</td>
+    <td> <input type="text" name="t8" onclick="ds_sh(this);" id="txtBirthDate" /></td>
+  </tr>
+  <tr>
+    <td>Upload Marksheet:</td>
+    <td> <input type="file" name="t9" id="txtFile" /> </td>
+  </tr>
+   <tr>
+     <tr>
+    <td>User Name:</td>
+    <td> <input type="text" name="uname" id="txtUserName" /></td>
+  </tr>
+ 
+ <tr>
+    <td>Password:</td>
+    <td> <input type="password" name="pwd" id="txtPassword" /></td>
+  </tr>
+  <tr>
+    <td>Security Question:</td>
+    <td><select name="t10" id="cmbQue">
+                        <option>What is Your Pet Name?</option>
+                        <option selected="selected">Who is Your Favourite Person?</option>
+                        <option>What is the Name of Your First School?</option>
+                                                                  </select></td>
+  </tr>
+  <tr>
+    <td>Answer:</td>
+    <td>  <input type="text" name="t11" id="txtAnswer" /></td>
+  </tr>
+   <tr>
+    <td>  <input type="submit" name="submit" id="button2" value="submit" /></td>
+  </tr>
+</table>
+</form>
+		   </td>
+		   <td> <img src="{{ url_for('static', filename='images/reg.png')}}" width="50%">
+		   <td>
+		   </tr>
+		   </table>
+
+        
+<script>
+        const togglePassword =
+              document.querySelector('#togglePassword');
+ 
+        const password = 
+              document.querySelector('#id_password');
+ 
+        togglePassword.
+        addEventListener('click', function (e) {
+ 
+            // Toggle the type attribute 
+            const type = password.getAttribute(
+                'type') === 'password' ? 'text' : 'password';
+            password.setAttribute('type', type);
+ 
+            // Toggle the eye slash icon 
+            if (togglePassword.src.match(
+"eyeslash.png")) {
+                togglePassword.src =
+"eye.png";
+            } else {
+                togglePassword.src =
+"eyeslash.png";
+            }
+        }); 
+    </script>
+
+      <div class="row">
+        <div class="span12">  
+            	
+        		 
+    
+        	
+                          
+  <!-- Content End -->
+  </div> </div> </div> </div> </div> </div> </div>

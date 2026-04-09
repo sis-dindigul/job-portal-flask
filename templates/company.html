@@ -1,0 +1,96 @@
+{% include "header.html" %}
+<!-- Titlebar
+================================================== -->
+<section id="titlebar">
+	<!-- Container -->
+	<div class="container">
+	
+		<div class="eight columns">
+			<h3 class="left">Company Login</h3>
+		</div>
+		
+		 
+
+	</div>
+	<!-- Container / End -->
+</section>
+
+  <!-- Content -->
+  <div id="content">
+    <div class="container">
+	
+	<table width="100%" >
+	<tr>
+	<td>
+
+      <form class="reg" method="POST" action="{{ url_for('company') }}">
+
+		 <table width="80%" style="padding:20px;">
+<tr>
+<td style="width:30%">
+		  <strong>User Name</strong> </td>
+		  <td>
+		  <input type="text" name="un" required></td>
+		  </tr>
+		  <tr>
+           
+         <td>   <strong>Password</strong> </td>
+          <td>  <input type="password" name="pwd" autocomplete="current-password" required="" id="id_password"> 
+                        <img src="{{ url_for('static', filename='eye.png')}}" width="10%" height="10%" style="display: inline; margin-left: -1.5%; vertical-align: middle" id="togglePassword"></td>
+		  </tr>
+		  <tr>
+		  <td>
+            <input type="submit" name="submit" value="submit">
+			</td>
+			  <td>
+            <input type="reset"   value="Cancel">
+			</td>
+		</tr>
+		</table>
+           </form>
+		   </td>
+		<td> <img src="{{ url_for('static', filename='images/Admin.png')}}" width="50%">
+		   <td>
+		   </tr>
+		   </table>
+		   <p><a href="{{ url_for('new_company') }}">New Company Register Here</p>
+ 
+<script>
+        const togglePassword =
+              document.querySelector('#togglePassword');
+ 
+        const password = 
+              document.querySelector('#id_password');
+ 
+        togglePassword.
+        addEventListener('click', function (e) {
+ 
+            // Toggle the type attribute 
+            const type = password.getAttribute(
+                'type') === 'password' ? 'text' : 'password';
+            password.setAttribute('type', type);
+ 
+            // Toggle the eye slash icon 
+            if (togglePassword.src.match(
+"eyeslash.png")) {
+                togglePassword.src =
+"eye.png";
+            } else {
+                togglePassword.src =
+"eyeslash.png";
+            }
+        }); 
+    </script>
+
+      <div class="row">
+        <div class="span12">  
+            	
+        		 
+    
+        	
+                          
+  <!-- Content End -->
+  </div> </div> </div> </div> </div> </div> </div>
+  
+  {% include "footer.html" %}
+  

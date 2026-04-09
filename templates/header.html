@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title> job Portal</title>
+	<style>
+table, td, th {  
+  border: 0px solid #ddd;
+  text-align: left;
+}
+
+ 
+
+th, td {
+  padding: 5px;
+}
+</style>
+	
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+ 
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/animate.css')}}">
+    
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/owl.carousel.min.css')}}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/owl.theme.default.min.css')}}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/magnific-popup.css')}}">
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap-datepicker.css')}}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/jquery.timepicker.css')}}">
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/flaticon.css')}}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css')}}">
+  </head>
+  <body>
+  	<div class="top py-1">
+  		<div class="container">
+  			<div class="row">
+	    		 
+	    		 
+	    	</div>
+  		</div>
+  	</div>
+		<div class="wrap">
+	    <div class="container">
+				<div class="row justify-content-between">
+					<div class="col-md-3 mb-md-0 mb-4 d-flex align-items-center">
+						<a class="navbar-brand" href="index.php">Online Job Portal</a>
+					</div>
+					
+					 
+					
+				</div>
+			</div>
+		</div>
+		<nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
+	    <div class="container">
+	      
+				 
+	      <div class="collapse navbar-collapse" id="ftco-nav">
+	        <ul class="navbar-nav mr-auto">
+			
+			
+			
+	        	<li class="nav-item active"><a href="{{ url_for('index') }}" class="nav-link">Home</a></li>
+	        	<li class="nav-item"><a href="{{ url_for('company') }}" class="nav-link">Company</a></li>
+	        	<li class="nav-item"><a href="{{ url_for('user') }}" class="nav-link">Job Seeker</a></li>
+					<li class="nav-item"><a href="{{ url_for('admin') }}" class="nav-link">Admin</a></li>
+					<li class="nav-item"><a href="{{ url_for('contact') }}" class="nav-link">Contact Us</a></li>
+	        	 
+	        </ul>
+	      </div>
+	    </div>
+	  </nav>
+	  <script>
+  {% with messages = get_flashed_messages() %}
+    {% if messages %}
+      alert("{{ messages[0] }}");
+    {% endif %}
+  {% endwith %}
+</script>

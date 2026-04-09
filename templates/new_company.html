@@ -1,0 +1,124 @@
+{% include "header.html" %}
+<!-- Titlebar
+================================================== -->
+<section id="titlebar">
+	<!-- Container -->
+	<div class="container">
+	
+		<div class="eight columns">
+			<h3 class="left">Company Register</h3>
+		</div>
+		
+		 
+
+	</div>
+	<!-- Container / End -->
+</section>
+
+  <!-- Content -->
+  <div id="content">
+    <div class="container">
+	
+	<table width="100%" >
+	<tr>
+	<td>
+
+        <form action="{{ url_for('new_company') }}" method="post"  enctype="multipart/form-data" id="form2">
+         <table width="100%" border="0">
+  <tr>
+    <td>Company Name:</td>
+    <td> <input type="text" name="cname" id="txtName" required/></td>
+  </tr>
+  <tr>
+    <td>Contact Person:</td>
+    <td> <input type="text" name="cperson" id="txtPerson" required/></td>
+  </tr>
+  <tr>
+    <td>Address:</td>
+    <td> <textarea name="address" id="address" cols="45" rows="5" required></textarea></td>
+  </tr>
+  <tr>
+    <td>City:</td>
+    <td>  <input type="text" name="city" id="txtCity" required/></td>
+  </tr>
+  <tr>
+    <td>Email:</td>
+    <td>   <input ttype="email" pattern="[^ @]*@[^ @]*"  name="email" id="txtEmail" required/></td>
+  </tr>
+  <tr>
+    <td>Mobile:</td>
+    <td>  <input type="tel" name="mob" pattern="[0-9]{10}" id="txtMobile" required/></td>
+  </tr>
+  <tr>
+    <td>Area of Work:</td>
+    <td><input type="text" name="area" id="txtAreaWork" required/></td>
+  </tr>
+  <tr>
+    <td>User Name:</td>
+    <td> <input type="text" name="uname" id="txtUserName" required/></td>
+  </tr>
+  <tr>
+    <td>Password:</td>
+    <td> <input type="password" name="pword" id="txtPassword" required/></td>
+  </tr>
+  <tr>
+    <td>Security Question:</td>
+    <td><select name="ques" id="cmbQue">
+                        <option>What is Your Pet Name?</option>
+                        <option selected="selected">Who is Your Favourite Person?</option>
+                        <option>What is the Name of Your First School?</option>
+                                                                  </select></td>
+  </tr>
+  <tr>
+    <td>Answer:</td>
+    <td>  <input type="text" name="ans" id="txtAnswer" required/></td>
+  </tr>
+   <tr>
+    <td><input type="submit" name="submit"  value="submit" /></td>
+    <td> <input type="reset" name="Cancel"  /></td>
+  </tr>
+</table>
+<form>
+		   </td>
+		   <td> <img src="{{ url_for('static', filename='images/reg.png')}}" width="50%">
+		   <td>
+		   </tr>
+		   </table>
+   
+<script>
+        const togglePassword =
+              document.querySelector('#togglePassword');
+ 
+        const password = 
+              document.querySelector('#id_password');
+ 
+        togglePassword.
+        addEventListener('click', function (e) {
+ 
+            // Toggle the type attribute 
+            const type = password.getAttribute(
+                'type') === 'password' ? 'text' : 'password';
+            password.setAttribute('type', type);
+ 
+            // Toggle the eye slash icon 
+            if (togglePassword.src.match(
+"eyeslash.png")) {
+                togglePassword.src =
+"eye.png";
+            } else {
+                togglePassword.src =
+"eyeslash.png";
+            }
+        }); 
+    </script>
+
+      <div class="row">
+        <div class="span12">  
+            	
+        		 
+    
+        	
+                          
+  <!-- Content End -->
+  </div> </div> </div> </div> </div> </div> </div>
+  
