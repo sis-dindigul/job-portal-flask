@@ -1,0 +1,149 @@
+<style>
+/* 🔥 Titlebar */
+#titlebar {
+    background: linear-gradient(120deg, #667eea, #764ba2);
+    color: white;
+    padding: 25px 0;
+    margin-bottom: 30px;
+}
+
+/* 🔥 Layout */
+.job-container {
+    display: flex;
+    gap: 20px;
+}
+
+/* 🔥 Left Content */
+.job-left {
+    flex: 70%;
+    background: #fff;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+}
+
+/* 🔥 Right Panel */
+.job-right {
+    flex: 30%;
+    background: #fff;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+    height: fit-content;
+}
+
+/* 🔥 Title */
+.job-title {
+    font-size: 26px;
+    font-weight: 700;
+    color: #333;
+}
+
+.company {
+    color: #6c63ff;
+    font-weight: 500;
+}
+
+/* 🔥 Info Grid */
+.info-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.info-box {
+    background: #f8f9ff;
+    padding: 10px;
+    border-radius: 8px;
+    font-size: 14px;
+}
+
+/* 🔥 Description */
+.desc {
+    margin-top: 20px;
+    line-height: 1.6;
+    color: #555;
+}
+
+/* 🔥 Apply Button */
+.btn-apply {
+    background: #6c63ff;
+    color: white;
+    width: 100%;
+    padding: 10px;
+    border-radius: 25px;
+    border: none;
+    font-size: 16px;
+    margin-top: 15px;
+}
+
+.btn-apply:hover {
+    background: #5548d9;
+}
+
+/* 🔥 Quick Info */
+.quick-info p {
+    margin: 8px 0;
+    font-size: 14px;
+}
+</style>
+{% include "jobseeker_dashboard/header.html" %}
+
+<section id="titlebar">
+    <div class="container">
+        <h3>Interview Details</h3>
+    </div>
+</section>
+
+<div class="container">
+
+<div class="job-container">
+
+    <!-- 🔥 LEFT SIDE -->
+    <div class="job-left">
+
+        <div class="job-title">{{ job.Position }}</div>
+        <div class="company">{{ job.CName }}</div>
+
+        <!-- 🔥 Info Grid -->
+        <div class="info-grid">
+            <div class="info-box">📅 Date: {{ job.Date }}</div>
+            <div class="info-box">⏰ Time: {{ job.Time }}</div>
+            <div class="info-box">📍 City: {{ job.City }}</div>
+            <div class="info-box">📞 Mobile: {{ job.Mobile }}</div>
+        </div>
+
+        <!-- 🔥 Description -->
+        <div class="desc">
+    <h5>Requirements</h5>
+    <p>{{ job.requirements }}</p>
+
+    <h5>Candidate Skills</h5>
+    <p>{{ job.candidate_skill }} Wanted</p>
+</div>
+
+    </div>
+
+    <!-- 🔥 RIGHT SIDE -->
+    <div class="job-right">
+
+        <h5>Quick Details</h5>
+
+        <div class="quick-info">
+            <p><b>Company:</b> {{ job.CName }}</p>
+            <p><b>Contact:</b> {{ job.Contact }}</p>
+            <p><b>Location:</b> {{ job.City }}</p>
+        </div>
+
+        <a href="{{ url_for('jresume', id=job.id) }}">
+            <button class="btn-apply">Apply Now 🚀</button>
+        </a>
+
+    </div>
+
+</div>
+
+</div>
+
+{% include "jobseeker_dashboard/footer.html" %}

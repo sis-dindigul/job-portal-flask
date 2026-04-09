@@ -1,0 +1,50 @@
+{% include "jobseeker_dashboard/header.html" %}
+
+<section id="titlebar">
+    <div class="container">
+        <h3>Interview Opportunities</h3>
+    </div>
+</section>
+
+<div class="container">
+
+<div class="table-card">
+
+<table class="custom-table">
+
+<thead>
+<tr>
+    <th>Company</th>
+    <th>Role</th>
+    <th>Date</th>
+    <th>Time</th>
+    <th>City</th>
+    <th>Action</th>
+</tr>
+</thead>
+
+<tbody>
+{% for job in jobs %}
+<tr>
+    <td>{{ job.CName }}</td>
+    <td>{{ job.Position }}</td>
+    <td>{{ job.Date }}</td>
+    <td>{{ job.Time }}</td>
+    <td>{{ job.City }}</td>
+
+    <td>
+        <a href="{{ url_for('job_detail', id=job.id) }}">
+            <button class="btn-view">View</button>
+        </a>
+    </td>
+</tr>
+{% endfor %}
+</tbody>
+
+</table>
+
+</div>
+
+</div>
+
+{% include "jobseeker_dashboard/footer.html" %}

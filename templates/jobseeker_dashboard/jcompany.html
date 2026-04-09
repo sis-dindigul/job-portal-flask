@@ -1,0 +1,70 @@
+{% include "jobseeker_dashboard/header.html" %}
+<!-- Titlebar
+================================================== -->
+<section id="titlebar">
+	<!-- Container -->
+	<div class="container">
+	
+		<div class="eight columns">
+			<h3 class="left">Company Report</h3>
+		</div>
+		
+		 
+		 <table    style="margin-left:0px; " width="100%"  cellpadding="0" cellpadding="0">
+					<tr>
+				<td> ID </td>
+					<td>Company Name </td>
+								
+					<td>Contact Person Name </td>
+					<td>Address</td>
+          <td>District</td>	
+          <td>E-MailID</td>
+            <td>Mobile No</td>
+            <td>Area of Work:</td>
+            
+							
+								
+							</tr>
+
+					<tr>
+{% for account in account %}
+<tr>
+	<td>{{ account['id'] }}</td>
+    <td>{{ account['cname'] }}</td>
+    <td>{{ account['cperson'] }}</td>
+    <td>{{ account['adrs'] }}</td>
+    <td>{{ account['city'] }}</td>
+    <td>{{ account['email'] }}</td>
+    <td>{{ account['mobile'] }}</td>
+    <td>{{ account['awork'] }}</td>
+	
+
+</tr>
+{% endfor %}
+
+					
+							
+		
+					</table>
+
+	</div>
+	<!-- Container / End -->
+</section>
+
+  <!-- Content -->
+  <div id="content">
+    <div class="container">
+	
+	 
+
+      <div class="row">
+        <div class="span12">  
+            	
+        		 
+    
+        	
+                          
+  <!-- Content End -->
+  </div> </div> </div> </div> </div> </div> </div>
+  
+  {% include "jobseeker_dashboard/footer.html" %}

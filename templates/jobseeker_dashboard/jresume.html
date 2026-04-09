@@ -1,0 +1,130 @@
+{% include "jobseeker_dashboard/header.html" %}
+<style>
+table, td, th {  
+  border: 0px solid #ddd;
+  text-align: left;
+}
+
+ 
+
+th, td {
+  padding: 5px;
+}
+</style>
+<!-- Titlebar
+================================================== -->
+<section id="titlebar">
+	<!-- Container -->
+	<div class="container">
+	
+		<div class="eight columns">
+			<h3 class="left">Resume Upload</h3>
+		</div>
+		
+		 
+
+	</div>
+	<!-- Container / End -->
+</section>
+
+  <!-- Content -->
+  <div id="content">
+    <div class="container">
+	
+	  
+		<form action="{{ url_for('jresume', id=id) }}" method="post" enctype="multipart/form-data">
+         <table width="100%" border="0">
+  <tr>
+    <td>Name:</td>
+    
+    
+    <td> <input type="text" name="name" ></td>
+  </tr>
+  <tr>
+    <td>Father Name</td>
+    <td> <input type="text" name="fname"  required/></td>
+  </tr>
+  <tr>
+    <td>Street:</td>
+    <td> <input type="text" name="street"/></td>
+  </tr>
+  <tr>
+    <td>City:</td>
+    <td>  <input type="text" name="city" required/></td>
+  </tr>
+  <tr>
+    <td>State:</td>
+    <td>   <input type="text" name="state"  required/></td>
+  </tr>
+  <tr>
+    <td>Country:</td>
+    <td>  <input type="text" name="country"  required/></td>
+  </tr>
+  <tr>
+    <td>Pincode:</td>
+    <td><input type="text" name="pin"  required/></td>
+  </tr>
+  <tr>
+    <td>Qualification:</td>
+    <td> <input type="text" name="qual" required/></td>
+  </tr>
+  <tr>
+    <td>Mail Id:</td>
+    <td> <input type="email" pattern="[^ @]*@[^ @]*" name="mail"  required/></td>
+  </tr>
+  <tr>
+    <td>Mobile</td>
+    
+    <td><input type="tel" name="mob" pattern="[6-9][0-9]{9}" maxlength="10" > </td>
+  </tr>
+  <tr>
+    <td>Reference Name:</td>
+    <td>  <input type="text" name="rname" required/></td>
+  </tr>
+   </tr>
+  <tr>
+    <td>Previous Company Name:</td>
+    <td>  <input type="text" name="pcn"  required/></td>
+  </tr>
+   </tr>
+  <tr>
+    <td>Working Experience:</td>
+    <td>  <input type="number" name="work"  required/></td>
+  </tr>
+   </tr>
+  <tr>
+    <td>Salary:</td>
+    <td>  <input type="text" name="salary" required/></td>
+  </tr>
+   </tr>
+  <tr>
+    <td>Resume Upload:</td>
+    <td>  <input type="file" name="resume"  required/></td>
+  </tr>
+   <tr>
+    <td>Skil Set</td>
+    <td> 
+    {% for skill in skills %}
+    <input type="checkbox" name="sset" value="{{ skill }}"> {{ skill }} <br>
+{% endfor %}
+</td>
+  </tr>
+   <tr>
+    <td><input type="submit" name="submit"  value="submit" /></td>
+    <td> <input type="reset" name="Cancel"  /></td>
+  </tr>
+</table>
+</form>
+ 
+
+      <div class="row">
+        <div class="span12">  
+            	
+        		 
+    
+        	
+                          
+  <!-- Content End -->
+  </div> </div> </div> </div> </div> </div> </div>
+
+  
